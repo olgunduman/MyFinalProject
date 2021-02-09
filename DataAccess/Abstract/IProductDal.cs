@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using Core.DataAccess;
+using Entities.DTOs;
 
 namespace DataAccess.Abstract
 {
    public interface IProductDal:IEntityRepository<Product>
    {
-       
+       List<ProductDeatilDto> GetProductDetails();
    }
 }
 
