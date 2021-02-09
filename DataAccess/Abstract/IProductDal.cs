@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
+using Core.DataAccess;
 
 namespace DataAccess.Abstract
 {
@@ -11,3 +12,5 @@ namespace DataAccess.Abstract
        
    }
 }
+
+//Code Refactoring
