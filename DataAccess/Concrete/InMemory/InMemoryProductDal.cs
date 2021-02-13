@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Core.DataAccess;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -98,5 +100,7 @@ namespace DataAccess.Concrete.InMemory
           return _products.Where(p => p.CategoryId == categoryId).ToList();
           
         }
+
+       
     }
 }

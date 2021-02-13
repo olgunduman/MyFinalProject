@@ -9,5 +9,6 @@ namespace Business.Abstract
    {
        List<Order> GetAll();
        Order GetById(int orderId);
+       
    }
 }
