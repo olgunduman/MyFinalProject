@@ -10,6 +10,7 @@ using Business.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
@@ -27,7 +28,9 @@ namespace WebAPI.Controllers
             _productService = productService;
         }
         
+       
         [HttpGet("getall")]
+  //      [Authorize(Roles = "product.list")]
         public IActionResult GetAll()
         {
             //dependenct chain 
@@ -52,6 +55,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("add")]
+       // [Authorize(Roles = "product.add")]
         public IActionResult Add(Product product)
         {
             var result = _productService.Add(product);
