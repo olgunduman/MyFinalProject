@@ -9,6 +9,7 @@ using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Cashing;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCusttingConcerns.Validation;
@@ -82,7 +83,7 @@ namespace Business.Concrete
 
 
         }
-
+      
         [ValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect("IproductSerivce.Get")]
         public IResult Update(Product product)
@@ -145,5 +146,7 @@ namespace Business.Concrete
 
             return null;
         }
+
+      
     }
 }

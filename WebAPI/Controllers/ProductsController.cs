@@ -11,6 +11,7 @@ using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading;
 
 namespace WebAPI.Controllers
 {
@@ -33,6 +34,8 @@ namespace WebAPI.Controllers
   //      [Authorize(Roles = "product.list")]
         public IActionResult GetAll()
         {
+
+            Thread.Sleep(1000);
             //dependenct chain 
             var result = _productService.GetAll();
             if (result.Success)
@@ -54,6 +57,19 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpGet("getbycategory")]
+        public IActionResult GetByCategory(int categoryId)
+        {
+            var result = _productService.GetAllByCategoryId(categoryId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
         [HttpPost("add")]
        // [Authorize(Roles = "product.add")]
         public IActionResult Add(Product product)
